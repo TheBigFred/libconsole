@@ -1,0 +1,4 @@
+.vscode
+_build*
+src/export.h
+src/config.h

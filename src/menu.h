@@ -14,10 +14,11 @@
 
 #include <list>
 #include <string>
+#include "export.h"
 
 namespace console {
 
-class menu final
+class EXPORT menu final
 {
 public:
    menu() = default;

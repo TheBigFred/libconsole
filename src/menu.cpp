@@ -72,12 +72,6 @@ void menu::add_separator()
    items_list.push_back(std::make_pair(0,item));
 }
 
-void menu::set_title(const std::string &str)
-{
-      title.clear();
-      title.append(str);
-}
-
 void menu::set_title(const std::string& str)
 {
    title = str;

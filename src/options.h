@@ -12,13 +12,15 @@
 
 #pragma once
 
-#include <string>
+#include <map>
 #include <list>
+#include <string>
 #include <cstdint>
+#include "export.h"
 
 namespace console {
 
-class options final
+class EXPORT options final
 {
 public:
    options() = default;
@@ -37,22 +39,24 @@ public:
       optional
    };
 
-   void add(const std::string &name, arg has_arg, uint32_t opt_code, const std::string &description);
+   void add(const std::string &name, arg has_arg, uint32_t opt_code);
+   void add_suboption(const std::string &optname, const std::string &suboptname, arg has_arg, uint32_t opt_code);
    int  parse(int argc, char **argv);
 
 private:
 
    struct opt
    {
-      std::string name;
       arg         has_arg;
       uint32_t    opt_code;
-      std::string description;
+      std::map<std::string,opt> subopt_list;
    };
 
-   std::list<opt> opt_list;
-   int long_opt(const char* arg0, const char* arg1, action& act);
-   int short_opt(const char* arg0, const char* arg1, action& act);
+   std::map<std::string,opt> opt_list;
+
+   int long_opt(const char* arg0, const char* arg1, const char* arg2, action& act);
+   int short_opt(const char arg0, const char* arg1, action& act);
+   int check_has_arg(arg has_arg);
 };
 
 } // namespace console

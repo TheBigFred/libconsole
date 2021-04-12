@@ -82,11 +82,6 @@ char getche(void)
 }
 #endif
 
-void clear()
-{
-   std::cout << "\033[2J\033[1;1H";
-}
-
 char read_key()
 {
    return getch();
