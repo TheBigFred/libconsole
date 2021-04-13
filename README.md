@@ -5,7 +5,6 @@ The purpose of this library is ...
 This library is tested on
 
 * Linux (Ubuntu 20.04)
-* MacOSX
 * Windows with Visual Studio Community 2019
 
 
