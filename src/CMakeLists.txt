@@ -18,17 +18,20 @@ list(APPEND PRIVATE_INC_FILES
 )
 
 list(APPEND PUBLIC_INC_FILES
-   ${CMAKE_CURRENT_SOURCE_DIR}/conio.h
+   ${CMAKE_CURRENT_SOURCE_DIR}/init.h
+   ${CMAKE_CURRENT_SOURCE_DIR}/manipulator.h
    ${CMAKE_CURRENT_SOURCE_DIR}/menu.h
    ${CMAKE_CURRENT_SOURCE_DIR}/options.h
    ${CMAKE_CURRENT_SOURCE_DIR}/platform.h
+   ${CMAKE_CURRENT_SOURCE_DIR}/read.h
    ${CMAKE_CURRENT_BINARY_DIR}/version.h
 )
 
 list(APPEND SRC_FILES
-   ${CMAKE_CURRENT_SOURCE_DIR}/conio.cpp
+   ${CMAKE_CURRENT_SOURCE_DIR}/init.cpp
    ${CMAKE_CURRENT_SOURCE_DIR}/menu.cpp
    ${CMAKE_CURRENT_SOURCE_DIR}/options.cpp
+   ${CMAKE_CURRENT_SOURCE_DIR}/read.cpp
    ${CMAKE_CURRENT_BINARY_DIR}/version.cpp
 )
 
@@ -70,7 +73,7 @@ libconsole_build_flags(${LIBNAME_SHARED})
 
 target_compile_definitions(${LIBNAME_STATIC}
    PRIVATE
-      STATICLIB_DEFINE
+      CONSOLE_SHARED_STATIC_DEFINE
 )
 
 if(MSVC)

@@ -11,13 +11,15 @@
 ////////////////////////////////////////////////////////////////////////////////
 
 #include <gtest/gtest.h>
-#include <conio.h>
 #include <iostream>
+
+#include "console.h"
 using namespace console;
 
 int main(int argc, char **argv)
 {
-
+   console_init();
+   read_int();
    std::cout << clear;
    std::cout << yx(5,5);
    std::cout << "hello";

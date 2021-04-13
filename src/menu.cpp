@@ -16,7 +16,7 @@
 #include <iostream>
 
 #include "menu.h"
-#include "conio.h"
+#include "read.h"
 
 namespace console {
 
@@ -105,7 +105,7 @@ void menu::show()
          draw = 0;
       }
 
-      int ch = getch();
+      int ch = _getch();
 
       auto it = items_list.begin();
       while (it != items_list.end())

@@ -56,13 +56,6 @@ option(USE_TWEAK                    "Show project Tweak number in version foncti
 option(ENABLE_TEST_${PROJECT_NAME}  "Enable Unit tests"                     OFF)
 option(ENABLE_DOC_${PROJECT_NAME}   "Generate Doxygen documentation"        OFF)
 
-# ==============================================================================
-# == Standalone build or Gloabl CMakeLists
-# ==============================================================================
-if(CMAKE_SOURCE_DIR STREQUAL CMAKE_CURRENT_SOURCE_DIR)
-   set(STANDALONE ON)
-   message(STATUS "** Standalone build **")
-endif()
 
 # ==============================================================================
 # == Add Sources
