@@ -40,45 +40,45 @@ namespace console {
    };
 
    // Erase
-   std::ostream& clear(std::ostream& os) { return os << "\033[2J\033[H"; }
-   std::ostream& clscr(std::ostream& os) { return os << "\033[2J"; }
-   std::ostream& clline(std::ostream& os) { return os << "\033[2K"; }
-   std::ostream& cllend(std::ostream& os) { return os << "\033[0K"; }
-   std::ostream& cllstart(std::ostream& os) { return os << "\033[1K"; }
+   inline std::ostream& clear(std::ostream& os) { return os << "\033[2J\033[H"; }
+   inline std::ostream& clscr(std::ostream& os) { return os << "\033[2J"; }
+   inline std::ostream& clline(std::ostream& os) { return os << "\033[2K"; }
+   inline std::ostream& cllend(std::ostream& os) { return os << "\033[0K"; }
+   inline std::ostream& cllstart(std::ostream& os) { return os << "\033[1K"; }
 
    // Cursor control
-   std::ostream& setyx(std::ostream& os, int y, int x) { return os << "\033[" << y << ";" << x << "H"; }
-   std::ostream& setup(std::ostream& os, int y) { return os << "\033[" << y << "A"; }
-   std::ostream& setdown(std::ostream& os, int y) { return os << "\033[" << y << "B"; }
-   std::ostream& setright(std::ostream& os, int x) { return os << "\033[" << x << "C"; }
-   std::ostream& setleft(std::ostream& os, int x) { return os << "\033[" << x << "D"; }
-   std::ostream& savepos(std::ostream& os) { return os << "\033[s"; }
-   std::ostream& restorepos(std::ostream& os) { return os << "\033[u"; }
-   std::ostream& nocursor(std::ostream& os) { return os << "\033[?25l"; }
-   std::ostream& cursor(std::ostream& os) { return os << "\033[?25h"; }
+   inline std::ostream& setyx(std::ostream& os, int y, int x) { return os << "\033[" << y << ";" << x << "H"; }
+   inline std::ostream& setup(std::ostream& os, int y) { return os << "\033[" << y << "A"; }
+   inline std::ostream& setdown(std::ostream& os, int y) { return os << "\033[" << y << "B"; }
+   inline std::ostream& setright(std::ostream& os, int x) { return os << "\033[" << x << "C"; }
+   inline std::ostream& setleft(std::ostream& os, int x) { return os << "\033[" << x << "D"; }
+   inline std::ostream& savepos(std::ostream& os) { return os << "\033[s"; }
+   inline std::ostream& restorepos(std::ostream& os) { return os << "\033[u"; }
+   inline std::ostream& nocursor(std::ostream& os) { return os << "\033[?25l"; }
+   inline std::ostream& cursor(std::ostream& os) { return os << "\033[?25h"; }
 
    // Attributes
-   std::ostream& noattr(std::ostream& os) { return os << "\033[0m"; }
-   std::ostream& bold(std::ostream& os) { return os << "\033[1m"; }
-   std::ostream& dim(std::ostream& os) { return os << "\033[2m"; }
-   std::ostream& italic(std::ostream& os) { return os << "\033[3m"; }
-   std::ostream& underline(std::ostream& os) { return os << "\033[4m"; }
-   std::ostream& blink(std::ostream& os) { return os << "\033[5m"; }
-   std::ostream& inverse(std::ostream& os) { return os << "\033[7m"; }
-   std::ostream& invisible(std::ostream& os) { return os << "\033[8m"; }
-   std::ostream& strikethrough(std::ostream& os) { return os << "\033[9m"; }
-   std::ostream& setcolor(std::ostream& os, int code) { return os << "\033[" << code << "m"; }
+   inline std::ostream& noattr(std::ostream& os) { return os << "\033[0m"; }
+   inline std::ostream& bold(std::ostream& os) { return os << "\033[1m"; }
+   inline std::ostream& dim(std::ostream& os) { return os << "\033[2m"; }
+   inline std::ostream& italic(std::ostream& os) { return os << "\033[3m"; }
+   inline std::ostream& underline(std::ostream& os) { return os << "\033[4m"; }
+   inline std::ostream& blink(std::ostream& os) { return os << "\033[5m"; }
+   inline std::ostream& inverse(std::ostream& os) { return os << "\033[7m"; }
+   inline std::ostream& invisible(std::ostream& os) { return os << "\033[8m"; }
+   inline std::ostream& strikethrough(std::ostream& os) { return os << "\033[9m"; }
+   inline std::ostream& setcolor(std::ostream& os, int code) { return os << "\033[" << code << "m"; }
 
    // Save Restore screen
-   std::ostream& savescr(std::ostream& os) { return os << "\033[?47h"; }
-   std::ostream& restorscr(std::ostream& os) { return os << "\033[?47l"; }
+   inline std::ostream& savescr(std::ostream& os) { return os << "\033[?47h"; }
+   inline std::ostream& restorscr(std::ostream& os) { return os << "\033[?47l"; }
 
-   omanip2<int> yx(int y, int x) { return omanip2<int>(setyx, y, x); }
-   omanip<int> up(int y) { return omanip<int>(setup, y); }
-   omanip<int> down(int y) { return omanip<int>(setdown, y); }
-   omanip<int> right(int x) { return omanip<int>(setright, x); }
-   omanip<int> left(int x) { return omanip<int>(setleft, x); }
-   omanip<int> color(int x) { return omanip<int>(setcolor, x); }
+   inline omanip2<int> yx(int y, int x) { return omanip2<int>(setyx, y, x); }
+   inline omanip<int> up(int y) { return omanip<int>(setup, y); }
+   inline omanip<int> down(int y) { return omanip<int>(setdown, y); }
+   inline omanip<int> right(int x) { return omanip<int>(setright, x); }
+   inline omanip<int> left(int x) { return omanip<int>(setleft, x); }
+   inline omanip<int> color(int x) { return omanip<int>(setcolor, x); }
 
    // Colors
    constexpr uint8_t fg_black = 30;

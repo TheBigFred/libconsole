@@ -24,7 +24,7 @@ add_executable(${PROJECT_TESTS}
 )
 
 add_test(
-   NAME ${PROJECT_TESTS}
+   NAME ${PROJECT_NAME}
    COMMAND $<TARGET_FILE:${PROJECT_TESTS}>
 )
 

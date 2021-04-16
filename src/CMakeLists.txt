@@ -73,7 +73,7 @@ libconsole_build_flags(${LIBNAME_SHARED})
 
 target_compile_definitions(${LIBNAME_STATIC}
    PRIVATE
-      CONSOLE_SHARED_STATIC_DEFINE
+      EXPORT_STATIC_DEFINE
 )
 
 if(MSVC)
@@ -143,6 +143,7 @@ configure_package_config_file(
    INSTALL_DESTINATION cmake
 )
 
+if (DevelPackage)
 install(
    FILES
       ${PUBLIC_INC_FILES}
@@ -192,11 +193,26 @@ install(
       ${PROJECT_NAME}_dependencies.cmake
 )
 
+else(DevelPackage)
+
+if (STANDALONE_${PROJECT_NAME})
+install(
+   TARGETS
+      ${LIBNAME_SHARED}
+   EXPORT
+      ${PROJECT_NAME}
+   LIBRARY
+      DESTINATION         ${CMAKE_INSTALL_LIBDIR}
+      COMPONENT           ${PROJECT_NAME}_RunTime
+)
+endif()
+endif(DevelPackage)
+
 # ==============================================================================
 # == Striping
 # ==============================================================================
 
-if (${CMAKE_BUILD_TYPE} STREQUAL "Release")
+if (${CMAKE_BUILD_TYPE} STREQUAL "Release" AND NOT MSVC)
 
 add_custom_command(TARGET ${LIBNAME_SHARED} POST_BUILD
    COMMAND ${CMAKE_OBJCOPY} --only-keep-debug ${PROJECT_NAME}.so ${PROJECT_NAME}.so.debug
@@ -204,10 +220,12 @@ add_custom_command(TARGET ${LIBNAME_SHARED} POST_BUILD
    COMMAND ${CMAKE_OBJCOPY} --add-gnu-debuglink=${PROJECT_NAME}.so.debug ${PROJECT_NAME}.so
 )
 
+if (DevelPackage)
 install(
    FILES
       ${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}.so.debug
    DESTINATION
-      ${PROJECT_NAME}/${CMAKE_INSTALL_LIBDIR}
+      ${CMAKE_INSTALL_LIBDIR}
 )
+endif(DevelPackage)
 endif()
