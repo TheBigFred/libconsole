@@ -47,9 +47,9 @@ void options::add(const std::string &name, arg has_arg, uint32_t opt_code)
 
 int options::check_has_arg(arg has_arg)
 {
-   if (has_arg == arg::required)
+   if (has_arg == options::arg::required)
       return 0;
-   else if (has_arg == arg::optional)
+   else if (has_arg == options::arg::optional)
       return 1;
    else
       return 0;
@@ -60,7 +60,7 @@ int options::long_opt(const char* arg0, const char* arg1, const char* arg2, acti
    auto optIt = opt_list.find(arg0);
    if (optIt != opt_list.end())
    {
-      if (optIt->second.has_arg == arg::no)
+      if (optIt->second.has_arg == options::arg::no)
       {
          act.opt_code = optIt->second.opt_code;
          return 1;
@@ -73,7 +73,7 @@ int options::long_opt(const char* arg0, const char* arg1, const char* arg2, acti
             if (suboptIt != optIt->second.subopt_list.end())
             {
                act.opt_code = suboptIt->second.opt_code;
-               if (suboptIt->second.has_arg == arg::no)
+               if (suboptIt->second.has_arg == options::arg::no)
                   return 1;
                else if (arg2)
                {
@@ -109,10 +109,10 @@ int options::short_opt(const char arg0, const char* arg1, action &act)
    auto optIt = opt_list.find(arg);
    if (optIt != opt_list.end())
    {
-      if (optIt->second.has_arg == arg::no)
+      if (optIt->second.has_arg == options::arg::no)
          act.opt_code = optIt->second.opt_code;
 
-      else if (optIt->second.has_arg == arg::required)
+      else if (optIt->second.has_arg == options::arg::required)
       {
          if (arg1 != nullptr)
          {
@@ -122,7 +122,7 @@ int options::short_opt(const char arg0, const char* arg1, action &act)
          else
             return 0;
       }
-      else if (optIt->second.has_arg == arg::optional)
+      else if (optIt->second.has_arg == options::arg::optional)
       {
          act.opt_code = optIt->second.opt_code;
          if (arg1 != nullptr)
