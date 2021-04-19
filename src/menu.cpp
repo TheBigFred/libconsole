@@ -105,7 +105,7 @@ void menu::show()
          draw = 0;
       }
 
-      int ch = _getch();
+      int ch = getch();
 
       auto it = items_list.begin();
       while (it != items_list.end())

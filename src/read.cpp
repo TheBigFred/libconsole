@@ -85,7 +85,7 @@ namespace console {
 
    char read_key()
    {
-      return _getch();
+      return getch();
    }
 
    void read_str(std::string& value)
