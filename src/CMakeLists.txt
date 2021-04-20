@@ -212,20 +212,20 @@ endif(DevelPackage)
 # == Striping
 # ==============================================================================
 
-if (${CMAKE_BUILD_TYPE} STREQUAL "Release" AND NOT MSVC)
+# if (${CMAKE_BUILD_TYPE} STREQUAL "Release" AND NOT MSVC)
 
-add_custom_command(TARGET ${LIBNAME_SHARED} POST_BUILD
-   COMMAND ${CMAKE_OBJCOPY} --only-keep-debug ${PROJECT_NAME}.so ${PROJECT_NAME}.so.debug
-   COMMAND ${CMAKE_OBJCOPY} --strip-debug ${PROJECT_NAME}.so
-   COMMAND ${CMAKE_OBJCOPY} --add-gnu-debuglink=${PROJECT_NAME}.so.debug ${PROJECT_NAME}.so
-)
+# add_custom_command(TARGET ${LIBNAME_SHARED} POST_BUILD
+#    COMMAND ${CMAKE_OBJCOPY} --only-keep-debug ${PROJECT_NAME}.so ${PROJECT_NAME}.so.debug
+#    COMMAND ${CMAKE_OBJCOPY} --strip-debug ${PROJECT_NAME}.so
+#    COMMAND ${CMAKE_OBJCOPY} --add-gnu-debuglink=${PROJECT_NAME}.so.debug ${PROJECT_NAME}.so
+# )
 
-if (DevelPackage)
-install(
-   FILES
-      ${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}.so.debug
-   DESTINATION
-      ${CMAKE_INSTALL_LIBDIR}
-)
-endif(DevelPackage)
-endif()
+# if (DevelPackage)
+# install(
+#    FILES
+#       ${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}.so.debug
+#    DESTINATION
+#       ${CMAKE_INSTALL_LIBDIR}
+# )
+# endif(DevelPackage)
+# endif()
