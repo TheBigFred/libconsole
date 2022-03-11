@@ -1,5 +1,5 @@
 ////////////////////////////////////////////////////////////////////////////////
-// File      : console.h
+// File      : hexa.h
 // Contents  :
 //
 // Author(s) : Frederic Gerard - mailfge@gmail.com
@@ -12,9 +12,12 @@
 
 #pragma once
 
-#include "manipulator.h"
-#include "menu.h"
-#include "options.h"
-#include "read.h"
-#include "init.h"
-#include "hexa.h"
+#include <string>
+#include "export.h"
+
+namespace console {
+
+EXPORT std::string HexaDump(const std::string& data, int nbBit=8);
+EXPORT std::string HexaStrToByteSt(const std::string& str);
+
+} // namespace console

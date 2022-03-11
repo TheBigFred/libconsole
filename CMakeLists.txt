@@ -12,7 +12,7 @@
 
 cmake_minimum_required(VERSION 3.0.2 FATAL_ERROR)
 
-project(libconsole VERSION 0.0.0.0 LANGUAGES CXX)
+project(libconsole VERSION 0.0.1.0 LANGUAGES CXX)
 
 set(LIBNAME console)
 set(LIBNAME_STATIC ${LIBNAME}-static)

@@ -19,7 +19,7 @@ using namespace console;
 int main(int argc, char **argv)
 {
    console_init();
-   read_int();
+   //read_int();
    std::cout << clear;
    std::cout << yx(5,5);
    std::cout << "hello";
@@ -39,6 +39,21 @@ int main(int argc, char **argv)
    std::cout << down(5);
    std::cout << noattr;
    std::cout << std::endl;
+
+   constexpr int size = 50;
+   char buff[size] = {};
+   for (int i=0; i<size; i++)
+      buff[i] = i;
+
+   std::string data;
+   data.insert(0,buff,size);
+   std::cout << HexaDump(data, 8) << std::endl;
+   std::cout << HexaDump(data, 16) << std::endl;
+   std::cout << HexaDump(data, 32) << std::endl;
+   std::cout << HexaDump(data, 64) << std::endl;
+
+   std::string str("01 12345678 1234");
+   std::cout << HexaDump( HexaStrToByteSt(str) ) << std::endl;
 
    ::testing::InitGoogleTest(&argc, argv);
    return RUN_ALL_TESTS();
