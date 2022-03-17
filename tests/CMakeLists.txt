@@ -34,6 +34,11 @@ add_test(
 
 libconsole_build_flags(${PROJECT_TESTS})
 
+target_compile_definitions(${PROJECT_TESTS}
+   PRIVATE
+      STATICLIB_DEFINE
+)
+
 target_include_directories(${PROJECT_TESTS}
    PUBLIC
       $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/../src>
@@ -45,6 +50,6 @@ target_include_directories(${PROJECT_TESTS}
 
 target_link_libraries(${PROJECT_TESTS}
    PRIVATE
-      ${LIBNAME_SHARED}
+      ${LIBNAME_STATIC}
       gtest
 )

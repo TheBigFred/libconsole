@@ -1,6 +1,7 @@
 .vs
 .vscode
 _build*
+build
 out
 CMakeSettings.json
 src/export.h

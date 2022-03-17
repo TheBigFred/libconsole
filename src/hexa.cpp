@@ -14,9 +14,7 @@
 #include <cstdlib>
 #include <iomanip>
 #include <sstream>
-#include <arpa/inet.h>
 #include "endian.h"
-#include "hexa.h"
 
 namespace console {
 
@@ -58,8 +56,8 @@ std::string HexaStrToByteSt(const std::string& str)
 {
    std::string data;
    std::size_t ppos=0;
-   int         size=0;
-   int         dpos=0;
+   std::size_t size=0;
+   std::size_t dpos=0;
    char *next = (char*)str.c_str();
    do
    {
@@ -78,22 +76,22 @@ std::string HexaStrToByteSt(const std::string& str)
          }
          case 2:
          {
-            auto val = std::strtol (next,&next,16);
-            val = htobe16(val);
+            auto val = (int16_t)std::strtol (next,&next,16);
+            val = htons(val);
             data.insert(dpos,(char*)&val,size);
             break;
          }
          case 4:
          {
             auto val = std::strtol (next,&next,16);
-            val = htobe32(val);
+            val = htonl(val);
             data.insert(dpos,(char*)&val,size);
             break;
          }
          case 8:
          {
             auto val = std::strtoll (next,&next,16);
-            val = htobe64(val);
+            val = htonll(val);
             data.insert(dpos,(char*)&val,size);
             break;
          }

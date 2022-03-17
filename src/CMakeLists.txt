@@ -103,7 +103,7 @@ set_target_properties(${LIBNAME_SHARED}
 
 include(GenerateExportHeader)
 generate_export_header(${LIBNAME_SHARED}
-   EXPORT_FILE_NAME "${CMAKE_CURRENT_SOURCE_DIR}/export.h"
+   EXPORT_FILE_NAME           "${CMAKE_CURRENT_SOURCE_DIR}/export.h"
    EXPORT_MACRO_NAME          EXPORT
    DEPRECATED_MACRO_NAME      DEPRECATED
    NO_EXPORT_MACRO_NAME       NO_EXPORT
