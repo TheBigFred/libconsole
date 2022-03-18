@@ -77,21 +77,21 @@ std::string HexaStrToByteSt(const std::string& str)
          case 2:
          {
             auto val = (int16_t)std::strtol (next,&next,16);
-            val = htons(val);
+            val = htobe16(val);
             data.insert(dpos,(char*)&val,size);
             break;
          }
          case 4:
          {
             auto val = std::strtol (next,&next,16);
-            val = htonl(val);
+            val = htobe32(val);
             data.insert(dpos,(char*)&val,size);
             break;
          }
          case 8:
          {
             auto val = std::strtoll (next,&next,16);
-            val = htonll(val);
+            val = htobe64(val);
             data.insert(dpos,(char*)&val,size);
             break;
          }
