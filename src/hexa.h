@@ -2,7 +2,7 @@
 // File      : hexa.h
 // Contents  :
 //
-// Author(s) : Frederic Gerard - mailfge@gmail.com
+// Author    : TheBigFred - thebigfred.github@gmail.com
 // URL       : https://github.com/TheBigFred/libconsole
 //
 //-----------------------------------------------------------------------------
