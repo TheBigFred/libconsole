@@ -6,7 +6,7 @@
 // URL       : https://github.com/TheBigFred/libconsole
 //
 //-----------------------------------------------------------------------------
-//  LGPL V3.0 - https://www.gnu.org/licences/lgpl-3.0.txt
+// LGPL V3.0 - https://www.gnu.org/licences/lgpl-3.0.txt
 //-----------------------------------------------------------------------------
 ////////////////////////////////////////////////////////////////////////////////
 
@@ -53,7 +53,7 @@ int main(int argc, char **argv)
    std::cout << HexaDump(data, 64) << std::endl;
 
    std::string str("01 12345678 1234");
-   std::cout << HexaDump( HexaStrToByteSt(str) ) << std::endl;
+   std::cout << HexaDump( HexaStrToByteStr(str) ) << std::endl;
 
    ::testing::InitGoogleTest(&argc, argv);
    return RUN_ALL_TESTS();

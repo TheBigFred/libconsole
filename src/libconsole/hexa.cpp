@@ -10,11 +10,19 @@
 //-----------------------------------------------------------------------------
 ////////////////////////////////////////////////////////////////////////////////
 
+#include <list>
 #include <string>
 #include <cstdlib>
 #include <iomanip>
 #include <sstream>
-#include "endian.h"
+#include "_endian.h"
+#include "hexa.h"
+
+#if defined(_WIN32) || defined(WIN32)
+
+#else
+#  include <arpa/inet.h>
+#endif
 
 namespace console {
 
@@ -52,12 +60,12 @@ std::string HexaDump(const std::string& data, int nbBit/*=8*/)
    return str;
 }
 
-std::string HexaStrToByteSt(const std::string& str)
+std::string HexaStrToByteStr(const std::string& str)
 {
    std::string data;
    std::size_t ppos=0;
-   std::size_t size=0;
-   std::size_t dpos=0;
+   int         size=0;
+   int         dpos=0;
    char *next = (char*)str.c_str();
    do
    {
@@ -76,7 +84,7 @@ std::string HexaStrToByteSt(const std::string& str)
          }
          case 2:
          {
-            auto val = (int16_t)std::strtol (next,&next,16);
+            auto val = std::strtol (next,&next,16);
             val = htobe16(val);
             data.insert(dpos,(char*)&val,size);
             break;

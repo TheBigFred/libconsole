@@ -18,6 +18,6 @@
 namespace console {
 
 EXPORT std::string HexaDump(const std::string& data, int nbBit=8);
-EXPORT std::string HexaStrToByteSt(const std::string& str);
+EXPORT std::string HexaStrToByteStr(const std::string& str);
 
 } // namespace console

@@ -1,5 +1,5 @@
 ################################################################################
-## File      : dependencies.cmake
+## File      : @PROJECT_NAME@Config.cmake
 ## Contents  : cmake package configuration file
 ##
 ## Author    : TheBigFred - thebigfred.github@gmail.com
@@ -10,8 +10,16 @@
 ##-----------------------------------------------------------------------------
 ################################################################################
 
-#find_library( REQUIRED)
+@PACKAGE_INIT@
+include(CMakeFindDependencyMacro)
 
-list(APPEND DEP_LIBS
-#	
-)
+include("${CMAKE_CURRENT_LIST_DIR}/@PROJECT_NAME_LC@_dependencies.cmake")
+
+foreach(DEP ${@PROJECT_NAME_UUC@_DEP_LIST})
+  find_dependency(${DEP} REQUIRED)
+endforeach()
+
+# Load our targets
+include("${CMAKE_CURRENT_LIST_DIR}/@PROJECT_NAME_LC@.cmake")
+
+check_required_components(@PROJECT_NAME@)
