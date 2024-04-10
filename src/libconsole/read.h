@@ -16,7 +16,7 @@
 #include <cstdint>
 #include <iostream>
 #include "platform.h"
-#include "export.h"
+#include <libconsole/export.h>
 
 namespace console {
 

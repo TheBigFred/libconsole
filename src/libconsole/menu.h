@@ -15,7 +15,7 @@
 #include <list>
 #include <string>
 #include <utility>
-#include "export.h"
+#include <libconsole/export.h>
 
 namespace console {
 

@@ -16,7 +16,7 @@
 #include <list>
 #include <string>
 #include <cstdint>
-#include "export.h"
+#include <libconsole/export.h>
 
 namespace console {
 

@@ -13,7 +13,7 @@
 #pragma once
 
 #include <string>
-#include "export.h"
+#include <libconsole/export.h>
 
 namespace console {
 

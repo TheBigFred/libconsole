@@ -12,7 +12,7 @@
 
 #pragma once
 
-#include "export.h"
+#include <libconsole/export.h>
 
 namespace console {
 

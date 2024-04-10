@@ -11,7 +11,7 @@
 ////////////////////////////////////////////////////////////////////////////////
 
 #include <cstdint>
-#include "export.h"
+#include <libconsole/export.h>
 
 #cmakedefine USE_TWEAK_AS_DATE
 #cmakedefine USE_TWEAK
