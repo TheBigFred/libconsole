@@ -19,7 +19,7 @@
 #include "hexa.h"
 
 #if defined(_WIN32) || defined(WIN32)
-
+#   pragma comment(lib, "Ws2_32.lib")
 #else
 #  include <arpa/inet.h>
 #endif
