@@ -70,6 +70,11 @@ target_link_libraries(${PROJECT_TESTS}
 if (MSVC AND BUILD_SHARED_LIBS)
    add_custom_command (TARGET ${PROJECT_TESTS} POST_BUILD
       COMMAND ${CMAKE_COMMAND} -E copy_directory_if_different ${CMAKE_BINARY_DIR}/bin ${OUTPUT_DIRECTORY}/bin
-      COMMAND ${CMAKE_COMMAND} -E copy_directory_if_different ${CMAKE_INSTALL_PREFIX}/bin ${OUTPUT_DIRECTORY}/bin/$<CONFIG>
    )
+
+   if (EXISTS ${CMAKE_INSTALL_PREFIX}/bin)
+      add_custom_command (TARGET ${PROJECT_TESTS} POST_BUILD
+         COMMAND ${CMAKE_COMMAND} -E copy_directory_if_different ${CMAKE_INSTALL_PREFIX}/bin ${OUTPUT_DIRECTORY}/bin/$<CONFIG>
+      )
+   endif()
 endif()
