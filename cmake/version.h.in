@@ -18,11 +18,11 @@
 namespace @PROJECT_NAME_UUC@
 {
 #if defined(USE_TWEAK) && !defined(USE_TWEAK_AS_DATE)
-   EXPORT void version(const char** name, uint32_t* major, uint32_t* minor, uint32_t* build, uint32_t* tweak, const char** date);
+   LIBCONSOLE_EXPORT void version(const char** name, uint32_t* major, uint32_t* minor, uint32_t* build, uint32_t* tweak, const char** date);
 #else
-   EXPORT void version(const char** name, uint32_t* major, uint32_t* minor, uint32_t* build, const char** date);
+   LIBCONSOLE_EXPORT void version(const char** name, uint32_t* major, uint32_t* minor, uint32_t* build, const char** date);
 #endif
 
-   EXPORT const char* versionStr();
+   LIBCONSOLE_EXPORT const char* versionStr();
 }  // namespace @PROJECT_NAME_UUC@
 

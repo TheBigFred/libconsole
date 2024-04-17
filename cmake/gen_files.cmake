@@ -27,7 +27,7 @@ configure_file(
 include(GenerateExportHeader)
 generate_export_header(${PROJECT_NAME}
    EXPORT_FILE_NAME           "${PROJECT_BINARY_DIR}/src/${PROJECT_NAME}/export.h"
-   EXPORT_MACRO_NAME          EXPORT
+   EXPORT_MACRO_NAME          ${PROJECT_NAME_UUC}_EXPORT
    DEPRECATED_MACRO_NAME      DEPRECATED
    NO_EXPORT_MACRO_NAME       NO_EXPORT
    INCLUDE_GUARD_NAME         ${PROJECT_NAME_UUC}_EXPORT_H

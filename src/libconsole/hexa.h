@@ -17,7 +17,7 @@
 
 namespace console {
 
-EXPORT std::string HexaDump(const std::string& data, int nbBit=8);
-EXPORT std::string HexaStrToByteStr(const std::string& str);
+LIBCONSOLE_EXPORT std::string HexaDump(const std::string& data, int nbBit=8);
+LIBCONSOLE_EXPORT std::string HexaStrToByteStr(const std::string& str);
 
 } // namespace console

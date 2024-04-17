@@ -33,10 +33,10 @@ namespace console {
 
 #endif
 
-EXPORT char read_key();
-EXPORT void read_str(std::string& value);
-EXPORT int  read_int();
-EXPORT bool read_int(int& value, int min, int max);
-EXPORT bool read_int_loop(int& value, int min, int max, const std::string& txt);
+LIBCONSOLE_EXPORT char read_key();
+LIBCONSOLE_EXPORT void read_str(std::string& value);
+LIBCONSOLE_EXPORT int  read_int();
+LIBCONSOLE_EXPORT bool read_int(int& value, int min, int max);
+LIBCONSOLE_EXPORT bool read_int_loop(int& value, int min, int max, const std::string& txt);
 
 } // namespace console

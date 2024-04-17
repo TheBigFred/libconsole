@@ -20,7 +20,7 @@
 
 namespace console {
 
-class EXPORT options final
+class LIBCONSOLE_EXPORT options final
 {
 public:
    options() = default;

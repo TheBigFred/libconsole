@@ -16,6 +16,6 @@
 
 namespace console {
 
-EXPORT int console_init();
+LIBCONSOLE_EXPORT int console_init();
 
 } // namespace console

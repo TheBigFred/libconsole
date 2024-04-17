@@ -19,7 +19,7 @@
 
 namespace console {
 
-class EXPORT menu final
+class LIBCONSOLE_EXPORT menu final
 {
 public:
    menu() = default;
